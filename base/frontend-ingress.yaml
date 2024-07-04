@@ -2,22 +2,22 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: "nodejs-backend-ingress"
+  name: "frontend-ingress"
   namespace: default
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/group.name: eks-demo-group
-    alb.ingress.kubernetes.io/group.order: '2'
+    alb.ingress.kubernetes.io/group.order: '3'
 spec:
   ingressClassName: alb
   rules:
-  - http:
+    - http:
         paths:
-          - path: /services
+          - path: /
             pathType: Prefix
             backend:
               service:
-                name: "demo-nodejs-backend"
+                name: "demo-frontend"
                 port:
-                  number: 8080
+                  number: 80

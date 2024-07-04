@@ -5,14 +5,14 @@ metadata:
   name: demo-frontend
   namespace: default
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: frontend-fargate
+      app: demo-frontend
   template:
     metadata:
       labels:
-        app: frontend-fargate
+        app: demo-frontend
     spec:
       containers:
         - name: demo-frontend
